@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pamsagram</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+  <div id="auth-container" class="auth-screen">
+    <div class="auth-card">
+      <h1 class="logo">Pamsagram</h1>
+      <p class="subtitle">Log in with your Phone Number to see photos & videos from your friends.</p>
+
+      <div id="phone-step">
+        <div class="input-group">
+          <input type="tel" id="phone-number" placeholder="+91 9876543210" />
+        </div>
+        <div id="recaptcha-container"></div>
+        <button id="btn-send-otp" class="btn-primary">Send OTP</button>
+      </div>
+
+      <div id="otp-step" class="hidden">
+        <div class="input-group">
+          <input type="text" id="username-input" placeholder="Choose a Username" />
+        </div>
+        <div class="input-group">
+          <input type="number" id="otp-code" placeholder="6-digit OTP" />
+        </div>
+        <button id="btn-verify-otp" class="btn-primary">Verify & Enter</button>
+      </div>
+
+      <p id="auth-error" class="error-text"></p>
+    </div>
+  </div>
+
+  <div id="app-container" class="app-layout hidden">
+    <header class="navbar">
+      <div class="nav-content">
+        <h2 class="logo-small">Pamsagram</h2>
+        <div class="nav-actions">
+          <button id="open-upload-btn" class="icon-btn" title="Create Post"><i class="fa-regular fa-square-plus"></i></button>
+          <button id="logout-btn" class="icon-btn" title="Logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="stories-bar">
+        <div class="story-item">
+          <div class="story-ring"><img src="https://picsum.photos/60/60?random=1" alt="user" /></div>
+          <span>Your Story</span>
+        </div>
+        <div class="story-item">
+          <div class="story-ring active"><img src="https://picsum.photos/60/60?random=2" alt="user" /></div>
+          <span>Rahul</span>
+        </div>
+        <div class="story-item">
+          <div class="story-ring active"><img src="https://picsum.photos/60/60?random=3" alt="user" /></div>
+          <span>Aman</span>
+        </div>
+      </div>
+
+      <section id="feed-container" class="feed"></section>
+    </main>
+
+    <div id="upload-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Create new post</h3>
+          <span id="close-modal-btn" class="close-btn">&times;</span>
+        </div>
+        <div class="modal-body">
+          <input type="file" id="post-image-file" accept="image/*" />
+          <textarea id="post-caption" placeholder="Write a caption..."></textarea>
+          <button id="btn-publish-post" class="btn-primary">Share</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
